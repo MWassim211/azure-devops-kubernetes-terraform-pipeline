@@ -1,7 +1,7 @@
 FROM maven:3.6.3-jdk-8-slim AS build
 WORKDIR /home/app
 COPY . /home/
-RUN ls && mvn -f /home/app/pom.xml clean package
+RUN mvn clean package
 
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
