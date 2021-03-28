@@ -1,6 +1,7 @@
 FROM maven:3.6.3-jdk-8-slim AS build
 WORKDIR /home/app
-COPY . /home/
+COPY ./ /home/
+RUN ls
 RUN mvn clean package
 
 FROM openjdk:8-jdk-alpine
