@@ -6,21 +6,32 @@
 trigger:
 - main
 
-strategy:
-  matrix:
-    linux:
-      operationSystem : 'ubuntu-latest'
-    macos:
-      operationSystem : 'macos-latest'
-
 pool:
   vmImage: $(operationSystem)
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages: 
+  - stage: Build
+    jobs:
+    - job: Build
+      steps:
+      - bash : echo 'Do the build'
+  - stage : DevDeploy
+    jobs:
+    - deployment: DevDeployJob
+      environment: dev
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - bash : echo deploy to dev
+  - stage : QADeploy
+    jobs:
+    - deployment: QADeployJob
+      environment: QA
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - bash : echo deploy to QA
+      
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
