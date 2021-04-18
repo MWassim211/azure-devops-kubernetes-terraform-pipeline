@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: BMW-ZenBook-UX331FA-UX331FA
 
 steps:
 - script: echo Hello, world!
