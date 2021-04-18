@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: BMW-ZenBook-UX331FA-UX331FA
+pool: BMW-ZenBook-UX331FA-UX331FA
 
 steps:
 - script: echo Hello, world!
