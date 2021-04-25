@@ -7,7 +7,7 @@ pool:
    - agent.name -equals BMW-ZenBook-UX331FA-UX331FA
 
 steps:
-- script: azure K8S Terraform Azure !
+- script: echo azure K8S Terraform Azure !
   displayName: 'Run a one-line script'
   
 - task: DownloadSecureFile@1
