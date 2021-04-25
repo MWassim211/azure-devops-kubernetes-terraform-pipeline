@@ -1,0 +1,32 @@
+trigger:
+- main
+
+pool:
+  name: Default
+  demands:
+   - agent.name -equals BMW-ZenBook-UX331FA-UX331FA
+
+steps:
+- script: echo azure K8S Terraform Azure !
+  displayName: 'Run a one-line script'
+  
+- task: DownloadSecureFile@1
+  name: publickey
+  inputs:
+    secureFile: 'azure_rsa.pub'
+    retryCount: '5'
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+    backendType: 'azurerm'
+    backendServiceArm: 'azure-resource-manager-service-connection'
+    ensureBackend: true
+    backendAzureRmResourceGroupName: 'terraform-resource-gp'
+    backendAzureRmResourceGroupLocation: 'westeurope'
+    backendAzureRmStorageAccountName: 'storageaccountwass69'
+    backendAzureRmContainerName: 'storageaccountcontainer'
+    backendAzureRmKey: 'kubernetes-dev.tfstate.tf'
+    allowTelemetryCollection: true
+
