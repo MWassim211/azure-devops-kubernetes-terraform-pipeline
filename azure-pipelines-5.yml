@@ -35,7 +35,7 @@ stages:
     - bash: echo '$(Build.ArtifactStagingDirectory)'
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        SourceFolder: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
         Contents: '**/*.yaml'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
     - bash: ls -R $(Build.ArtifactStagingDirectory)
