@@ -35,7 +35,7 @@ stages:
     - bash: echo '$(Build.ArtifactStagingDirectory)'
     - task: CopyFiles@2
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: '**/*.yaml'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
     - bash: ls -R $(Build.ArtifactStagingDirectory)
@@ -68,4 +68,4 @@ stages:
         kubernetesServiceConnection: 'azure-kubernetes-connection'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/configuration/iaac/azure/kubernetes/deployment.yaml'
-        containers: 'mwassim211/currency-exchange-devops:{tag}'
+        containers: 'mwassim211/currency-exchange-devops:$(tag)'
