@@ -38,7 +38,7 @@ stages:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: '**/*.yaml'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    - bash: ls -R $(System.ArtifactStagingDirectory)
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
