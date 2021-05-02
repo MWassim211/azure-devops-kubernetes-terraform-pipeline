@@ -63,10 +63,10 @@ stages:
         artifactName: 'manifests'
         itemPattern: '**/*.yaml'
         downloadPath: '$(System.ArtifactsDirectory)'
-    - task: KubernetesManifest@0
-      inputs:
-        action: 'deploy'
-        kubernetesServiceConnection: 'azure-kubernetes-connection'
-        namespace: 'default'
-        manifests: '$(System.ArtifactsDirectory)/configuration/iaac/azure/kubernetes/deployment.yaml'
-        containers: 'mwassim211/currency-exchange-devops:$(tag)'
+    #- task: KubernetesManifest@0
+    #  inputs:
+    #    action: 'deploy'
+    #    kubernetesServiceConnection: 'azure-kubernetes-connection'
+    #    namespace: 'default'
+    #    manifests: '$(System.ArtifactsDirectory)/configuration/iaac/azure/kubernetes/deployment.yaml'
+    #    containers: 'mwassim211/currency-exchange-devops:$(tag)'
