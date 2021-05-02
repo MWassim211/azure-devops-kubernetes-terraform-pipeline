@@ -45,6 +45,7 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'manifests'
         publishLocation: 'Container'
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
 
 - stage: Deploy
   displayName: Deploy image
