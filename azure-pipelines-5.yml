@@ -69,5 +69,5 @@ stages:
         action: 'deploy'
         kubernetesServiceConnection: 'azure-kubernetes-connection'
         namespace: 'default'
-        manifests: '$(System.ArtifactsDirectory)/configuration/iaac/azure/kubernetes/deployment.yaml'
+        manifests: '$(System.ArtifactsDirectory)/manifests/configuration/iaac/azure/kubernetes/deployment.yaml'
         containers: 'mwassim211/currency-exchange-devops:$(tag)'
