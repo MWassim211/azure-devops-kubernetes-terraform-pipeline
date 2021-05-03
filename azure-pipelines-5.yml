@@ -11,7 +11,8 @@ resources:
 - repo: self
 
 variables:
-  tag: 13 #'$(Build.BuildId)'
+  tag: 13 
+  #'$(Build.BuildId)'
 
 stages:
 - stage: Build
