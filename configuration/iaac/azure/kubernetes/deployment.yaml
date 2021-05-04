@@ -1,4 +1,4 @@
-xapiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: currency-exchange
-        image: mwassim211/currency-exchange-devops
+        image: mwassim211/currency-exchange-devops:18
         imagePullPolicy: IfNotPresent
         ports:
         - name: liveness-port
