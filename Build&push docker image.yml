@@ -25,7 +25,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'dockerRegistryWass'
-        repository: 'mwasssim211/currency-exchange-devops-v2'
+        repository: 'mwassim211/currency-exchange-devops-v2'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
